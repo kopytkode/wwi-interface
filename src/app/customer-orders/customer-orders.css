@@ -1,0 +1,43 @@
+/* Inner Orders Table */
+table.orders-table {
+  table-layout:auto;
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #6B8E23; /* Olive green border for inner table */
+  background-color: #F0FFF0;  /* Light green background for inner table */
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+table.orders-table th {
+  background-color: #8FBC8F; /* Soft green header */
+  color: #ffffff;
+  font-weight: bold;
+  text-align: left;
+  padding: 4px 6px;
+  border-bottom: 2px solid #6B8E23;
+}
+
+table.orders-table td {
+  border: 1px solid #C0C0C0;
+  padding: 4px 6px;
+}
+
+table.orders-table tr:nth-child(even) {
+  background-color: #E6FFE6; /* Slightly different for alternating rows */
+}
+
+table.orders-table tr:hover {
+  background-color: #D0FFD0; /* Highlight on hover */
+}
+
+/* Optional: make headers slightly smaller than parent table */
+table.orders-table th {
+  font-size: 14px;
+}
+
+/* Ensure the container td spans full width */
+td.orders-container {
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,41 @@
+@for (order of orders(); track order.orderId) {
+  <!-- Order Header + Lines as a full-width table -->
+ <tr>
+  <td colspan="10" class="orders-container">
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>Order #</th>
+          <th>Order Date</th>
+          <th>Expected Delivery</th>
+          <th>Customer PO</th>
+          <th colspan="2">Description</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Line Total</th>
+          <th>Order Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Iterate over each order line within the current order -->
+        @for (line of order.orderLines; track line.orderLineId) {
+          <tr>
+            <td>{{ order.orderId }}</td>
+            <td>{{ order.orderDate | date:'mediumDate' }}</td>
+            <td>{{ order.expectedDeliveryDate | date:'mediumDate' }}</td>
+            <td>{{ order.customerPurchaseOrderNumber || '—' }}</td>
+            <td>{{ line.description }}</td>
+            <td style="text-align:right;">{{ line.quantity }}</td>
+            <td style="text-align:right;">{{ line.unitPrice | currency }}</td>
+            <td style="text-align:right;">{{ (line.unitPrice ?? 0) * line.quantity | currency }}</td>
+            <td colspan="2" style="text-align:right; font-weight:bold;">
+              {{ calculateOrderTotal(order) | currency }}
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </td>
+</tr>
+
+}

@@ -1,5 +1,5 @@
 {
-  "name": "lab2-wwi-ui",
+  "name": "wwi-interface",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:lab2-wwi-ui": "node dist/lab2-wwi-ui/server/server.mjs"
+    "serve:ssr:wwi-interface": "node dist/wwi-interface/server/server.mjs"
   },
   "prettier": {
     "printWidth": 100,

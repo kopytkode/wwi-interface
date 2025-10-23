@@ -1,0 +1,61 @@
+<div class="page-container">
+  <h2>Customers</h2>
+  <p>
+   Search and browse customers from Wide World Importers.
+  </p>
+<!-- template variable #searchInput helps with two-way data binding -->
+<input #searchInput
+  type="text"
+  class="search-bar"
+  placeholder="Search customers..."
+  [value]="searchTerm()"
+  (input)="searchTerm.set(searchInput.value)"/>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Recent Orders</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Primary Contact</th>
+        <th>Alternate Contact</th>
+        <th>Address</th>
+        <th>Delivery City</th>
+        <th>Delivery Method</th>
+        <th>Website</th>
+      </tr>
+    </thead>
+    <tbody>
+       @for (customer of filteredCustomers(); track customer.customerId) {
+        <tr>
+          <td>
+            <!-- Button to toggle the visibility of customer orders -->
+            <button (click)="toggleOrders(customer.customerId)" class="btn btn-link">
+              {{ expandedCustomerId() === customer.customerId ? 'Hide' : 'View' }}
+            </button>
+          </td>
+          <td>{{customer.customerId}}</td>
+          <td>{{customer.customerName}}</td>
+          <td>{{customer.phoneNumber}}</td>
+          <td>{{customer.primaryContact}}</td>
+          <td>{{customer.alternateContact}}</td>
+          <td>{{customer.deliveryAddressLine1}}, {{customer.deliveryAddressLine2}}</td>
+          <td>{{customer.deliveryCity}}</td>
+          <td>{{customer.deliveryMethod}}</td>
+          <td>{{customer.websiteUrl}}</td>
+        </tr>
+        <!--expanded rows-->
+          @if (expandedCustomerId() === customer.customerId) {
+          <tr>
+            <td colspan="10">
+              <!-- Customer Orders Component -->
+              <app-customer-orders [customerId]="customer.customerId"></app-customer-orders>
+            </td>
+          </tr>
+        }
+       }
+      
+    </tbody>
+  </table>
+</div>

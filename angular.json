@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lab2-wwi-ui": {
+    "wwi-interface": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -58,10 +58,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "lab2-wwi-ui:build:production"
+              "buildTarget": "wwi-interface:build:production"
             },
             "development": {
-              "buildTarget": "lab2-wwi-ui:build:development"
+              "buildTarget": "wwi-interface:build:development"
             }
           },
           "defaultConfiguration": "development"
